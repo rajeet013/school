@@ -58,7 +58,7 @@ const Navbar = () => {
               key={item.href}
               href={item.href}
               className={`transition p-4 ${isActive
-                ? "text-[#64BEE6] border-b-6 border-[#DC3C3A] hover:border-none"
+                ? "text-[#64BEE6] border-b-6 border-[#DC3C3A]"
                 : "text-black hover:text-[#64BEE6] hover:border-b-6 hover:border-[#DC3C3A]"
             }`}
             >

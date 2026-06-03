@@ -13,38 +13,38 @@ const Footer = () => {
           <p className="text-[#6C6C6C]">1810 Campus Way NE</p>
           <p className="text-[#6C6C6C]">Bothell, WA 98011-8246</p>
           <p className="mt-5">+1-2534-4456-345</p>
-          <p>admin@kingsteruni.edu</p>
+          <p className="hover:cursor-pointer">admin@kingsteruni.edu</p>
           <div className="px-4 py-0.25 w-50 bg-[#DC3C3A] mt-5" />
         </div>
         <div>
           <p className="font-bold text-xl">Our Campus</p>
           <div className="px-4 py-0.25 w-50 bg-[#DC3C3A] my-5" />
-          <p className="mb-2 text-[#6C6C6C]">Acedemic</p>
-          <p className="mb-2 text-[#6C6C6C]">Planning & Administration</p>
-          <p className="mb-2 text-[#6C6C6C]">Campus Safety</p>
-          <p className="mb-2 text-[#6C6C6C]">Office of the Chancellor</p>
-          <p className="mb-2 text-[#6C6C6C]">Facility Services</p>
-          <p className="mb-2 text-[#6C6C6C]">Human Resources</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Acedemic</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Planning & Administration</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Campus Safety</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Office of the Chancellor</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Facility Services</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Human Resources</p>
         </div>
         <div>
           <p className="font-bold text-xl">Campus Life</p>
           <div className="px-4 py-0.25 w-50 bg-[#DC3C3A] my-5" />
-          <p className="mb-2 text-[#6C6C6C]">Accessibility</p>
-          <p className="mb-2 text-[#6C6C6C]">Financial Aid</p>
-          <p className="mb-2 text-[#6C6C6C]">Food Services</p>
-          <p className="mb-2 text-[#6C6C6C]">Housing</p>
-          <p className="mb-2 text-[#6C6C6C]">Information Technologies</p>
-          <p className="mb-2 text-[#6C6C6C]">Student Life</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Accessibility</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Financial Aid</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Food Services</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Housing</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Information Technologies</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Student Life</p>
         </div>
         <div>
           <p className="font-bold text-xl">Academics</p>
           <div className="px-4 py-0.25 w-50 bg-[#DC3C3A] my-5" />
-          <p className="mb-2 text-[#6C6C6C]">Canvas</p>
-          <p className="mb-2 text-[#6C6C6C]">Catalyst</p>
-          <p className="mb-2 text-[#6C6C6C]">Library</p>
-          <p className="mb-2 text-[#6C6C6C]">Time Schedule</p>
-          <p className="mb-2 text-[#6C6C6C]">Apply For Admissions</p>
-          <p className="mb-2 text-[#6C6C6C]">Pay My Tuition</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Canvas</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Catalyst</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Library</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Time Schedule</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Apply For Admissions</p>
+          <p className="mb-2 text-[#6C6C6C] hover:cursor-pointer hover:text-white">Pay My Tuition</p>
         </div>
       </div>
 
