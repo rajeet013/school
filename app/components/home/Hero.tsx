@@ -99,15 +99,15 @@ const Hero = () => {
         {/* Arrows */}
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition"
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-white p-3 rounded-full transition hover:cursor-pointer"
         >
-          <ChevronLeft size={28} />
+          <ChevronLeft size={60} />
         </button>
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition"
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-white p-3 rounded-full transition hover:cursor-pointer"
         >
-          <ChevronRight size={28} />
+          <ChevronRight size={60} />
         </button>
 
         {/* Dots */}

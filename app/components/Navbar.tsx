@@ -11,14 +11,16 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaFacebook, FaLinkedin, FaPinterest, FaVimeo } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
-import { navLinks } from "../../constants";
+import { navLinks } from "../constants";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <div className="">
+    <div className="sticky top-0 z-50">
       <div className="max-[1260px]:hidden flex md:px-60 bg-[#64BEE6] w-full py-1 items-center justify-between">
         <div className="flex gap-3">
           <MailOpenIcon />
@@ -48,16 +50,21 @@ const Navbar = () => {
           height={100}
           className="max-[1260px]:pr-5"
         />
-        <div className="text-black flex gap-6 max-[1260px]:hidden">
-          {navLinks.map((item) => (
+        <div className="text-black flex items-center gap-6 max-[1260px]:hidden">
+          {navLinks.map((item) => {
+            const isActive = pathname === item.href;
+            return (
             <Link
               key={item.href}
               href={item.href}
-              className="hover:text-[#64BEE6] hover:underline"
+              className={`transition p-4 ${isActive
+                ? "text-[#64BEE6] border-b-6 border-[#DC3C3A] hover:border-none"
+                : "text-black hover:text-[#64BEE6] hover:border-b-6 hover:border-[#DC3C3A]"
+            }`}
             >
               {item.title}
             </Link>
-          ))}
+          )})}
           <SearchIcon
             className="text-[#64BEE6]"
             onClick={() => setIsSearchOpen(!isSearchOpen)}

@@ -3,15 +3,15 @@ import Image from "next/image";
 
 const Gallery = () => {
   return (
-    <div className="w-full flex flex-col items-center min-[768px]:flex-row bg-white">
+    <div className="w-full flex flex-col items-center min-[1280px]:flex-row bg-white">
       {images.map((item, index) => (
         <Image
           key={item.image}
           src={item.image}
-          width={120}
-          height={120}
+          width={150}
+          height={150}
           alt="gallery"
-          className="max-[768px]:w-100 min-[768px]:w-full min-[768px]:h-auto object-cover"
+          className="max-[1280px]:w-100 min-[1284px]:w-full min-[768px]:h-auto object-cover"
         />
       ))}
     </div>

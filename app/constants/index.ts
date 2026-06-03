@@ -5,3 +5,4 @@ export * from "./navbar";
 export * from "./news";
 export * from "./testimonal";
 export * from "./gallery";
+export * from "./philosophy";

@@ -1,7 +1,6 @@
 import About from "./components/home/About";
 import Classes from "./components/home/Classes";
 import Facilities from "./components/home/Facilities";
-import Footer from "./components/home/Footer";
 import Gallery from "./components/home/Gallery";
 import Hero from "./components/home/Hero";
 import News from "./components/home/News";
@@ -19,7 +18,6 @@ export default function Home() {
       <Teachers />
       <Testimonal />
       <Gallery />
-      <Footer />
     </div>
   );
 }
