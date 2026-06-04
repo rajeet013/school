@@ -8,11 +8,11 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaFacebook, FaLinkedin, FaPinterest, FaVimeo } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import { navLinks } from "../constants";
-import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,7 +44,7 @@ const Navbar = () => {
       </div>
       <div className="flex min-[1260px]:px-60 items-center justify-between bg-white w-full max-[1260px]:py-2 py-6">
         <Image
-          src="/Kingstar.png"
+          src="/ZettaKids.png"
           alt="logo"
           width={200}
           height={100}
@@ -54,17 +54,19 @@ const Navbar = () => {
           {navLinks.map((item) => {
             const isActive = pathname === item.href;
             return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`transition p-4 ${isActive
-                ? "text-[#64BEE6] border-b-6 border-[#DC3C3A]"
-                : "text-black hover:text-[#64BEE6] hover:border-b-6 hover:border-[#DC3C3A]"
-            }`}
-            >
-              {item.title}
-            </Link>
-          )})}
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`transition p-4 ${
+                  isActive
+                    ? "text-[#64BEE6] border-b-6 border-[#DC3C3A]"
+                    : "text-black hover:text-[#64BEE6] hover:border-b-6 hover:border-[#DC3C3A]"
+                }`}
+              >
+                {item.title}
+              </Link>
+            );
+          })}
           <SearchIcon
             className="text-[#64BEE6]"
             onClick={() => setIsSearchOpen(!isSearchOpen)}

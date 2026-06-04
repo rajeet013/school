@@ -1,0 +1,32 @@
+export const footer = [
+  {
+    id:1,
+    heading: "Our Campus",
+    title: "Acedemic",
+    plan: "Planning & Administration",
+    facility: "Campus Safety",
+    official: "Office of the Chancellor",
+    services: "Facility Services",
+    management: "Human Resources",
+  },
+  {
+    id:2,
+    heading: "Campus Life",
+    title: "Accessibility",
+    plan: "Financial Aid",
+    facility: "Food Services",
+    official: "Housing",
+    services: "Iformation Technologies",
+    management: "Student Life",
+  },
+  {
+    id:3,
+    heading: "Academics",
+    title: "Canvas",
+    plan: "Catalyst",
+    facility: "Library",
+    official: "Time Schedule",
+    services: "Apply For Admissions",
+    management: "Pay My Tuition",
+  },
+];

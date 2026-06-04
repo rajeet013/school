@@ -1,137 +1,190 @@
 "use client";
-import gsap from "gsap";
+
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { navImages, slides } from "../../constants";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const imageAnim = {
+  hidden: { opacity: 0.75 },
+  show: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+const subtitleAnim = {
+  hidden: { x: -80, opacity: 0 },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const titleAnim = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { duration: 0.4, delay: 0.2 },
+  },
+};
+
+const descAnim = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { duration: 0.4, delay: 0.3 },
+  },
+};
+
+const buttonAnim = {
+  hidden: { x: -30, opacity: 0 },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.3, delay: 0.4 },
+  },
+};
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const descRef = useRef(null);
-  const btnRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline();
-
-    // Image zoom (background animation)
-    tl.fromTo(
-      imageRef.current,
-      { scale: 1.2, opacity: 0.8 },
-      { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" },
-    );
-
-    // subtitle
-    tl.fromTo(
-      subtitleRef.current,
-      { x: -80, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
-    );
-
-    // title
-    tl.fromTo(
-      titleRef.current,
-      { y: 0, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
-      "-=0.4", // optional overlap
-    );
-
-    // Description
-    tl.fromTo(
-      descRef.current,
-      { y: 0, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.4 },
-      "-=0.5",
-    );
-
-    // Button
-    tl.fromTo(
-      btnRef.current,
-      { x: -30, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.3 },
-      "-=0.4",
-    );
-  }, [current]);
 
   const prev = () =>
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+
   const next = () =>
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
 
   return (
     <div className="bg-white">
-      {/* Hero Slider */}
       <div className="relative w-full h-[90vh] overflow-hidden">
-        <Image
-          ref={imageRef}
-          src={slides[current].image}
-          alt="hero"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
+        <motion.div
+          key={current}
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="w-full h-full bg-black bg-blend-darken"
+        >
+          {/* OUTGOING IMAGE */}
+          <AnimatePresence>
+            {prev !== null && slides[prev] && (
+              <motion.div
+                key={prev}
+                initial={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: 0, scale: 1.05 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={slides[prev].image}
+                  alt="prev"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-        {/* Text Content */}
-        <div className="absolute inset-0 flex flex-col justify-center px-24">
-          <h1 ref={titleRef} className="text-white text-8xl font-bold">
-            {slides[current].title}
-          </h1>
+          {/* INCOMING IMAGE */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={slides[current].image}
+                alt="current"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
 
-          <h2 ref={subtitleRef} className="text-[#E87C2A] text-5xl mt-2">
-            {slides[current].subtitle}
-          </h2>
+          <div className="absolute inset-0 bg-black/40" />
 
-          <p ref={descRef} className="text-white text-lg mt-6 max-w-xl">
-            {slides[current].description}
-          </p>
+          <div className="absolute inset-0 flex flex-col justify-center px-24 md:px-60">
+            <motion.h1
+              variants={titleAnim}
+              className="text-white text-6xl md:text-8xl font-bold"
+            >
+              {slides[current].title}
+            </motion.h1>
 
-          <button
-            ref={btnRef}
-            className="mt-8 w-fit bg-[#64BEE6] text-white px-8 py-3 rounded"
-          >
-            {slides[current].button}
-          </button>
-        </div>
+            <motion.h2
+              variants={subtitleAnim}
+              className="text-[#E87C2A] text-4xl md:text-6xl mt-2"
+            >
+              {slides[current].subtitle}
+            </motion.h2>
 
-        {/* Arrows */}
+            <motion.p
+              variants={descAnim}
+              className="text-white text-lg mt-6 max-w-xl"
+            >
+              {slides[current].description}
+            </motion.p>
+
+            <motion.button
+              variants={buttonAnim}
+              className="mt-8 w-fit bg-[#64BEE6] text-white px-8 py-3 rounded"
+            >
+              {slides[current].button}
+            </motion.button>
+          </div>
+        </motion.div>
+
+        {/* ================= ARROWS ================= */}
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-white p-3 rounded-full transition hover:cursor-pointer"
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-white p-3 hover:cursor-pointer"
         >
           <ChevronLeft size={60} />
         </button>
+
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-white p-3 rounded-full transition hover:cursor-pointer"
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-white p-3 hover:cursor-pointer"
         >
           <ChevronRight size={60} />
         </button>
 
-        {/* Dots */}
+        {/* ================= DOTS ================= */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-3 h-3 rounded-full transition ${i === current ? "bg-white" : "bg-white/40"}`}
+              className={`w-3 h-3 rounded-full ${
+                i === current ? "bg-white" : "bg-white/40"
+              }`}
             />
           ))}
         </div>
-      </div>{" "}
-      {/* ← Hero ends here */}
-      {/* Nav Image Cards */}
+      </div>
+
       <div className="flex max-[768px]:flex-col items-center justify-center gap-8 px-16 py-16 bg-white">
         {navImages.map((item, index) => {
-          const colors = ["#64BEE6", "#DC3C3A", "#E87C2A"]; // blue, red, orange
+          const colors = ["#64BEE6", "#DC3C3A", "#E87C2A"];
           const color = colors[index % colors.length];
 
           return (
             <div key={index} className="flex flex-col items-center w-90">
-              {/* Image */}
-              <div className="relative inset-1.5 z-4 w-full h-64 overflow-hidden rounded-sm">
+              <div className="relative w-full h-64 overflow-hidden rounded-sm">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -139,27 +192,24 @@ const Hero = () => {
                   className="object-cover"
                 />
               </div>
-              {/* Title */}
+
               <h2 className="text-2xl font-bold mt-6 mb-3" style={{ color }}>
                 {item.title}
               </h2>
 
-              {/* Description */}
               <p className="text-gray-600 text-center text-sm leading-relaxed">
                 {item.description}
               </p>
 
-              {/* Button */}
               <button
-                className="mt-6 px-8 py-3 text-white rounded flex items-center gap-2 hover:opacity-90 transition hover:cursor-pointer"
+                className="mt-6 px-8 py-3 text-white rounded flex items-center gap-2"
                 style={{ backgroundColor: color }}
               >
-                {item.button} <span>→</span>
+                {item.button} →
               </button>
 
-              {/* Bottom colored line */}
               <div
-                className="w-full h-0.75 mt-6"
+                className="w-full h-[2px] mt-6"
                 style={{ backgroundColor: color }}
               />
             </div>

@@ -25,7 +25,7 @@ export const navLinks = [
   },
   {
     title: "School Life",
-    href: "/school life",
+    href: "/schoolLife",
   },
   {
     title: "Contact",

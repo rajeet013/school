@@ -5,7 +5,7 @@ import Image from "next/image";
 const News = () => {
   return (
     <div className="flex flex-col md:flex-row">
-      <div className="bg-[url('/news_background.jpg')] bg-cover bg-center bg-no-repeat min-[1260px]:p-20 p-5">
+      <div className="bg-[url('/news_background.jpg')] bg-cover bg-center bg-no-repeat min-[1260px]:p-20 p-4">
         <div className="flex items-end gap-4">
           <Image src="/blog-title.png" alt="news" width={50} height={50} />
           <h2 className="text-xl font-bold">News & Update</h2>
@@ -39,7 +39,7 @@ const News = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#F5F5F5] min-[1260px]:p-30 p-5">
+      <div className="bg-[#F5F5F5] min-[1260px]:p-30 p-5 w-1/2">
         <h2 className="text-xl font-bold text-[#DC3C3A]">Upcoming Events</h2>
 
         {date.map((item, index) => (
