@@ -209,7 +209,7 @@ const Hero = () => {
               </button>
 
               <div
-                className="w-full h-[2px] mt-6"
+                className="w-full h-0.5 mt-6"
                 style={{ backgroundColor: color }}
               />
             </div>
