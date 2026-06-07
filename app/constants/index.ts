@@ -10,3 +10,8 @@ export * from "./news";
 export * from "./philosophy";
 export * from "./services";
 export * from "./testimonal";
+export * from "./cards";
+export * from "./services_school";
+export * from "./sponsors";
+export * from "./teachers";
+export * from "./tour";
