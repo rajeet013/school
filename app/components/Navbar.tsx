@@ -107,7 +107,7 @@ const Navbar = () => {
                 className="absolute inset-0 bg-black/50"
                 onClick={() => setIsMenuOpen(false)}
               />
-              <div className="relative bg-black w-[260px] h-full p-6 flex flex-col gap-6 text-white shadow-lg">
+              <div className="relative bg-black w-65 h-full p-6 flex flex-col gap-6 text-white shadow-lg">
                 <X
                   className="cursor-pointer text-xl"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}

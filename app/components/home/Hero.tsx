@@ -15,20 +15,20 @@ const container = {
   },
 };
 
-const imageAnim = {
-  hidden: { opacity: 0.75 },
-  show: {
-    opacity: 1,
-    transition: { duration: 0.5, ease: "easeInOut" },
-  },
-};
+// const imageAnim = {
+//   hidden: { opacity: 0.75 },
+//   show: {
+//     opacity: 1,
+//     transition: { duration: 0.5, ease: "easeInOut" },
+//   },
+// };
 
 const subtitleAnim = {
   hidden: { x: -80, opacity: 0 },
   show: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 0.8, ease: "easeOut" as const },
   },
 };
 
@@ -78,16 +78,16 @@ const Hero = () => {
         >
           {/* OUTGOING IMAGE */}
           <AnimatePresence>
-            {prev !== null && slides[prev] && (
+            {prev !== null && slides[Number(prev)] && (
               <motion.div
-                key={prev}
+                key={slides[Number(prev)].title}
                 initial={{ opacity: 1, scale: 1 }}
                 animate={{ opacity: 0, scale: 1.05 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
                 <Image
-                  src={slides[prev].image}
+                  src={slides[Number(prev)].image}
                   alt="prev"
                   fill
                   className="object-cover"

@@ -1,18 +1,18 @@
 export const slides = [
   {
     image: "/school.jpg",
-    title: "Kingster",
+    title: "Zettaster",
     subtitle: "Kindergarten",
     description:
-      "Take a tour in Kingster and you will find the best school in the state. The video will take you to every places in this school.",
+      "Take a tour in Zettaster and you will find the best school in the state. The video will take you to every places in this school.",
     button: "Take A Tour",
   },
   {
     image: "/school2.jpg",
-    title: "Kingster",
+    title: "Zettaster",
     subtitle: "Kindergarten",
     description:
-      "Take a tour in Kingster and you will find the best school in the state. The video will take you to every places in this school.",
+      "Take a tour in Zettaster and you will find the best school in the state. The video will take you to every places in this school.",
     button: "Take A Tour",
   },
 ];
